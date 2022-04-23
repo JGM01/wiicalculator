@@ -4,7 +4,6 @@
 #include <wiiuse/wpad.h>
 
 void initializeWii();
-void prompt();
 int getOperand();
 bool getOperator();
 
@@ -14,9 +13,12 @@ static GXRModeObj *rmode = NULL;
 int main(int argc, char **argv) {
     initializeWii();
 
+    int a;
+    int b;
+    bool operand;
 
+    printf("Jacob's Wii Calculator\n");
     
-
 
     return 0;
 }
