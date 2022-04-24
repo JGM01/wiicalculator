@@ -84,10 +84,24 @@ int getOperand() {
 			case WPAD_BUTTON_A:
 				return operand;
 			case WPAD_BUTTON_UP:
-				operand++;
+				u32 held = false;
+                do{
+                    operand++;
+                    WPAD_ScanPads();
+                    held = WPAD_ButtonsHeld(0);
+                    printf("\e[1;1H\e[2J");
+                    sleep(.1);
+                }while(held);
 				break;
 			case WPAD_BUTTON_DOWN:
-				operand--;
+				u32 held2 = false;
+                do{
+                    operand--;
+                    WPAD_ScanPads();
+                    held2 = WPAD_ButtonsHeld(0);
+                    printf("\e[1;1H\e[2J");
+                    sleep(.1);
+                }while(held2);
 				break;
 			case WPAD_BUTTON_HOME:
 				printf("\n\nHome - Exiting Program");
